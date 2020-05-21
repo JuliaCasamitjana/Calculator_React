@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './styles/_calculator.scss';
+import CalculatorApp from './components/CalculatorApp';
+import { Provider } from 'react-redux';
+import store from './store/configureStore.js';
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store = { store }>
+    <CalculatorApp />
+  </Provider>,
   document.getElementById('root')
 );
 

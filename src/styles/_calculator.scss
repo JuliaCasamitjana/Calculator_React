@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+*{
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #D3D3D3;
+	font-family: 'Orbitron', sans-serif;
+}
+
+.calculator__box{
+	background-color: black;
+	display: inline-block;
+	padding:1.5rem;
+	border-radius:1rem;
+	width: 13.5rem;;
+	
+}
+
+.calculator__numbers{
+	display: inline-grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	
+}
+
+.calculator__operators{
+	display: inline-flex;
+	flex-direction: column;
+	button{
+		background-color: orange;
+	}
+}
+
+.calculator__input{
+	color:black;
+	height: 3rem;
+	padding: 0.5rem;
+	font-size: 1.5rem;
+	background-color: grey;
+	border-radius: 5px;
+	margin-bottom:1rem;
+	overflow: scroll;
+	p{
+		margin:0
+	}
+
+}
+
+button{
+	background-color: #808080;
+	color:white;
+	margin: 0.3rem;;
+	width: 2rem;
+	height: 2rem;;
+	border-radius:50%;
+	border: none;
+	text-align: center;
+}
+
+.calculator__center{
+	margin: 0 auto;
+	max-width: 20rem;
+}
