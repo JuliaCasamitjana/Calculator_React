@@ -42,7 +42,8 @@ body {
 	margin-bottom:1rem;
 	overflow: scroll;
 	p{
-		margin:0
+		margin:0;
+		white-space: nowrap;
 	}
 
 }
@@ -61,4 +62,9 @@ button{
 .calculator__center{
 	margin: 0 auto;
 	max-width: 20rem;
+}
+
+.calculator__input__error{
+	color:#A12830;
+	font-size: 0.5rem;
 }

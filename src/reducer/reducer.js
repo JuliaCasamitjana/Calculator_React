@@ -1,21 +1,25 @@
 const calculatorDefaultState = 
 {
-  numberInput:'',
-  result:''
+  numberInput:'0',
+  errorMsg:''
 };
 
  export default (state = calculatorDefaultState, action) =>{
   switch (action.type){
     case 'ENTER_VALUE':
+      if (state.numberInput ==='0') state.numberInput=''
       return {
-              ...state, 
+              errorMsg:'',
               numberInput: state.numberInput + action.key_calc
             }
     case 'RESET':
-      return calculatorDefaultState
+      return {
+        numberInput:'0',
+        errorMsg:''
+      };
     case 'DEL':
       return {
-              ...state, 
+              errorMsg:'',
               numberInput: state.numberInput.slice(0, state.numberInput.length-1)
             }
     case 'SWITCH_SIGN':
@@ -26,7 +30,7 @@ const calculatorDefaultState =
         }
 
     case 'OPERATION':
-    if ( (/(?<=\d)[+x/-]/).test(state.numberInput) ) { //True if there is an operation mark before numbers
+    if ( (/(?<=\d)[+x/-](?=\d)/).test(state.numberInput) ) { //True if there is an operation mark between numbers
         
         const existingOperator = state.numberInput.match(/(?<=\d)[+x/-]/).join();
         const numberA = state.numberInput.match(/.*(?=[+x/-])/).join();
@@ -58,7 +62,12 @@ const calculatorDefaultState =
             }
             /* falls through */
           default:
-            return state
+            return state;
+        }
+      }else if ( (/(?<=\d)[+x/-]/).test(state.numberInput) ){ //True if there is a number followed by operator
+        return {
+          ...state,
+          errorMsg: 'Insert a number'
         }
       } else {
           return {
