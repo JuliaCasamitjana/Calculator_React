@@ -25,7 +25,7 @@ const calculatorDefaultState =
     case 'SWITCH_SIGN':
       return {
           ...state, 
-          numberInput: 0 - state.numberInput
+          numberInput: (0 - (state.numberInput.match(/-*\d*/).join(''))).toString()
         
         }
 
