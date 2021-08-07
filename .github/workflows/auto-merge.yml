@@ -5,7 +5,7 @@ on:
     types:
       - completed
     workflows:
-      - 'main'
+      - 'Integrate'
 
 jobs:
   merge-me:
